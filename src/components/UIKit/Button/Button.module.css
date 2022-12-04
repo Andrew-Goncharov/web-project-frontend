@@ -1,0 +1,20 @@
+.button {
+    height: calc(var(--space) * 3);
+    padding: calc(var(--space) / 4) calc(var(--space) / 2);
+    max-height: calc(var(--space) * 3);
+
+    font-size: 1.5rem;
+
+    border: 2px solid var(--color-darker-blue);
+    border-radius: calc(var(--space) / 2);
+
+    background-color: transparent;
+    color: var(--color-gray);
+
+    transition: all .2s;
+}
+
+.button:hover {
+    transition: all .2s;
+    border-color: var(--color-bright-blue) !important;
+}
