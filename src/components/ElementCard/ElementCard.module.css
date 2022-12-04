@@ -1,0 +1,6 @@
+.elementCardWrapper {
+    border-radius: var(--space);
+    background-color: var(--color-black);
+    padding: var(--space);
+    /* max-width: calc(var(--space) * 24); */
+}
