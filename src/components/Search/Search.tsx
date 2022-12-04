@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import { Button } from "../UIKit";
 import Input from "../UIKit/Input/Input";
 import styles from "./Search.module.css";
 
@@ -45,6 +46,7 @@ function Search({ onSearchUpdate }: InputProps) {
           placeholder="Your search here"
         />
       </div>
+      <Button>Search</Button>
     </div>
   );
 }
