@@ -1,0 +1,4 @@
+.footerWrapper {
+    height: calc(var(--space) * 5);
+    border: 1px solid black;
+}
