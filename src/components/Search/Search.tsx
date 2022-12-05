@@ -46,7 +46,7 @@ function Search({ onSearchUpdate }: InputProps) {
           placeholder="Your search here"
         />
       </div>
-      <Button>Search</Button>
+      <Button onClick={() => console.log("click")}>Search</Button>
     </div>
   );
 }
