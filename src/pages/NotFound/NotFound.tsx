@@ -2,7 +2,11 @@ import React from "react";
 import styles from "./NotFound.module.css";
 
 function NotFound() {
-  return <div>Page not found try something else</div>;
+  return (
+    <div className={styles.conteiner}>
+      asdfasdf
+    </div>
+  );
 }
 
 export default NotFound;

@@ -26,6 +26,16 @@ function Main() {
         <ElementCard />
         <ElementCard />
         <ElementCard />
+        <ElementCard />
+        <ElementCard />
+        <ElementCard />
+        <ElementCard />
+        <ElementCard />
+        <ElementCard />
+        <ElementCard />
+        <ElementCard />
+        <ElementCard />
+        <ElementCard />
       </div>
     </div>
   );

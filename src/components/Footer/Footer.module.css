@@ -1,4 +1,10 @@
 .footerWrapper {
     height: calc(var(--space) * 5);
     border: 1px solid black;
+    background-color: var(--color-dark-blue);
+    padding: var(--space);
+    border-radius: calc(var(--space) / 2);
+    /* border-top-left-radius: calc(var(--space) / 2);
+    border-top-right-radius: calc(var(--space) / 2); */
+    margin: 0 var(--space) var(--space) var(--space);
 }

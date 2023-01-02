@@ -1,6 +1,9 @@
 .headerWrapper {
-    widtH: 100%;
-    border: 1px solid black;
+    width: calc(100% - calc(var(--space) * 2));
+    background-color: var(--color-dark-blue);
+    padding: 0 var(--space);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
-
-

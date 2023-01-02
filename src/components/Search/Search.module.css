@@ -1,12 +1,10 @@
 .searchWrapper {
     height: 100%;
-    padding: 0 var(--space);
     display: flex;
     flex-direction: row;
     gap: var(--space);
     justify-content: flex-start;
     align-items: center;
-    background-color: var(--color-dark-blue);
 }
 
 .searcHeader {

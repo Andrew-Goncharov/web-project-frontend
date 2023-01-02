@@ -3,9 +3,10 @@ export type EntityIdType = string;
 export interface EntityType {
   id: EntityIdType;
   name: string;
+  img: string;
   type: "CATEGORY" | "OFFER";
   children: Array<EntityIdType>;
-  date: typeof Date;
+  date: number;
   parentId: string | null;
-  price: number;
+  price: number | null;
 }
