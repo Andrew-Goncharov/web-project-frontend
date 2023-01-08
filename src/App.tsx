@@ -11,8 +11,6 @@ import {
 } from "./pages";
 
 function App() {
-  // const navigate = useNavigate();
-  // const page = window.location.href.split("/")[3];
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -52,6 +50,66 @@ function App() {
         price: 1000,
       }),
     );
+    dispatch(
+      objectsAddOne({
+        id: "4",
+        name: "product2",
+        img: "img4",
+        type: "OFFER",
+        children: [],
+        date: Date.now(),
+        parentId: "2",
+        price: 1012,
+      }),
+    );
+    dispatch(
+      objectsAddOne({
+        id: "5",
+        name: "product3",
+        img: "img5",
+        type: "OFFER",
+        children: [],
+        date: Date.now(),
+        parentId: "1",
+        price: 10112,
+      }),
+    );
+    dispatch(
+      objectsAddOne({
+        id: "6",
+        name: "product1",
+        img: "img1",
+        type: "OFFER",
+        children: [],
+        date: Date.now(),
+        parentId: "1",
+        price: 1000,
+      }),
+    );
+    dispatch(
+      objectsAddOne({
+        id: "7",
+        name: "product2",
+        img: "img4",
+        type: "OFFER",
+        children: [],
+        date: Date.now(),
+        parentId: "2",
+        price: 1012,
+      }),
+    );
+    dispatch(
+      objectsAddOne({
+        id: "8",
+        name: "product3",
+        img: "img5",
+        type: "OFFER",
+        children: [],
+        date: Date.now(),
+        parentId: "1",
+        price: 10112,
+      }),
+    );
   }, []);
 
   return (
@@ -62,10 +120,8 @@ function App() {
           <Route path="/" element={<Main />} />
           <Route path="/product/:id" element={<Product />} />
           <Route path="/category/:categoryId" element={<Category />} />
-          {/* <Route path="/login" element={<Login />} /> */}
           <Route path="*" element={<NotFound />} />
         </Routes>
-        {/* {(page === "login" || page === "register") && ( */}
         <Modal />
         <Footer />
       </div>

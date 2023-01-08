@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import ClearIcon from "@mui/icons-material/Clear";
 import { Button } from "../UIKit";
 import Input from "../UIKit/Input/Input";
 import styles from "./Search.module.css";
@@ -39,14 +40,25 @@ function Search({ onSearchUpdate }: InputProps) {
     <div className={styles.searchWrapper}>
       <div className={styles.searchInputWrapper}>
         <Input
-          className={styles.searchInput}
+          className={`${styles.searchInput} ${
+            search.length > 0 && styles.searchInputActive
+          }`}
           onChange={onChange}
           onKeyDown={onKeyDown}
           value={search}
-          placeholder="Your search here"
+          placeholder="Click to search"
         />
       </div>
-      <Button onClick={() => console.log("click")}>Search</Button>
+      <Button onClick={() => updateSearch(search)}>Search</Button>
+      <ClearIcon
+        onClick={() => {
+          setSearch("");
+          updateSearch("");
+        }}
+        style={{ fontSize: "3rem", opacity: search.length > 0 ? "1" : 0 }}
+        className={styles.clearIconButton}
+        color="inherit"
+      />
     </div>
   );
 }

@@ -8,3 +8,7 @@
     padding: var(--space);
     border-radius: var(--space);
 }
+.notFound {
+    text-align: center;
+    font-size: 2rem;
+}

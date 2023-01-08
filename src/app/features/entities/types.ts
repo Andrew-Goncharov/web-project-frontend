@@ -1,6 +1,6 @@
 export type EntityIdType = string;
 
-export interface EntityType {
+export interface IEntity {
   id: EntityIdType;
   name: string;
   img: string;

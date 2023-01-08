@@ -1,8 +1,8 @@
 /* eslint-disable import/prefer-default-export */
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { EntityType } from "./types";
+import { IEntity } from "./types";
 
-export const getAllEntities = createAsyncThunk<{ entites: EntityType[] }, void>(
+export const getAllEntities = createAsyncThunk<{ entites: IEntity[] }, void>(
   "entites/getAll",
   async () => {
     const resp = await fetch("https://vk.com");

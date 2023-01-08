@@ -4,12 +4,14 @@ import axios from "axios";
 
 export const loginThunk = createAsyncThunk(
   "user/login",
-  async (userCreds: { username: string; password: string }, thunkAPI) => {
-    console.log("Async thunk");
-    const res = await axios("http://localhost:8000/login", {
-      method: "POST",
-      data: JSON.stringify(userCreds),
+  async (
+    action: { username: string; password: string },
+    thunkAPI,
+  ) => {
+    const res = await axios("http://localhost:3000", {
+      method: "GET",
+      data: JSON.stringify(action),
     });
-    return res;
+    return { status: res.status };
   },
 );

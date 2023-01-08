@@ -1,0 +1,38 @@
+.pageWrapper {
+    width: calc(100% - var(--space) * 2);
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: var(--space);
+    margin: var(--space);
+    border-radius: calc(var(--space) / 2);
+}
+
+.mainInfoContainer {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space);
+    height: 400px;
+}
+
+.mainInfoContainer {
+    width: 100%;
+}
+.productDetailedInfo, .productMainInfo, .productImage {
+    border-radius: calc(var(--space) / 2);
+    padding: var(--space);
+    background-color: var(--color-dark-blue);
+}
+.productMainInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: var(--space);
+}
+
+.productDetailedInfo {
+    display: flex;
+    flex-direction: column;
+}

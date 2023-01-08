@@ -14,6 +14,12 @@ function LoginModal() {
   const { onClose } = useContext(ModalContext);
   const dispatch = useAppDispatch();
 
+  const doLogin = () => {
+    dispatch(
+      loginThunk({ username, password }),
+    );
+  };
+
   return (
     <div className={styles.formWrapper}>
       <h2>Login</h2>
@@ -27,14 +33,11 @@ function LoginModal() {
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && doLogin()}
         />
       </div>
       <div className={styles.buttonsSection}>
-        <Button
-          onClick={() => dispatch(loginThunk({ username, password }))}
-        >
-          Log in
-        </Button>
+        <Button onClick={doLogin}>Log in</Button>
         <Button onClick={onClose}>Close</Button>
       </div>
     </div>

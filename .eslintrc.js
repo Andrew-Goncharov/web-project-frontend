@@ -26,7 +26,7 @@ module.exports = {
       2,
     ],
     "linebreak-style": [
-      "error",
+      "warn",
       "unix",
     ],
     quotes: [
@@ -44,5 +44,6 @@ module.exports = {
     "import/no-unresolved": ["warn"],
     "react/jsx-filename-extension": ["error", { extensions: [".jsx", ".tsx"] }],
     "no-param-reassign": ["warn"],
+    "implicit-arrow-linebreak": ["warn"],
   },
 };

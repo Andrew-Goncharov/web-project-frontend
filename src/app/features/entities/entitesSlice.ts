@@ -1,7 +1,7 @@
 import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
-import { EntityType } from "./types";
+import { IEntity } from "./types";
 
-const EntitiesAdapter = createEntityAdapter<EntityType>();
+const EntitiesAdapter = createEntityAdapter<IEntity>();
 
 export const entitiesSlice = createSlice({
   name: "storeObject",
@@ -14,7 +14,7 @@ export const entitiesSlice = createSlice({
           parent?.children.push(action.payload.id);
           EntitiesAdapter.setOne(state, parent);
         } else if (action.payload.parentId !== null) {
-          const emptyParent:EntityType = {
+          const emptyParent:IEntity = {
             id: action.payload.parentId, name: "", type: "CATEGORY", img: "", children: [action.payload.id], date: Date.now(), parentId: null, price: null,
           };
           EntitiesAdapter.addOne(state, emptyParent);

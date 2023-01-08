@@ -12,6 +12,33 @@
 }
 
 .searchInputWrapper {
-    width: 40%;
+    display: flex;
+    justify-content: flex-end;
+    width: auto;
     max-width: 700px;
+    transition: all .3s;
+}
+
+.searchInput {
+    width: 160px;
+}
+
+.searchInput:focus {
+    width: 600px;
+    transition: all .3s;
+}
+
+.searchInputActive {
+    width: 600px;
+    transition: all .3s;
+}
+
+.clearIconButton {
+    color: var(--color-darker-blue);
+    transition: all .3s;
+}
+
+.clearIconButton:hover {
+    color: var(--color-bright-blue);
+    transition: all .3s;
 }
