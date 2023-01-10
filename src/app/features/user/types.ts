@@ -8,7 +8,7 @@ export interface IUser {
   username: string,
   email: string,
   sessionCreds: TJWT | null,
-  lastError: string,
+  lastError: string | null,
 }
 
 // export interface IAsyncThunk<T> {

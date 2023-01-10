@@ -1,6 +1,7 @@
+/* eslint-disable arrow-body-style */
 /* eslint-disable import/prefer-default-export */
 import { RootState } from "../../store";
-import { IEntity } from "./types";
+import { IEntity, IFilters } from "./types";
 
 export const getEntityById = (state: RootState, id: string) =>
   state.entities.entities[id];
@@ -23,3 +24,17 @@ export const getAllChildren = (state: RootState, id: string) => {
 
 export const getAllEntities = (state: RootState) =>
   Object.values(state.entities.entities);
+
+export const getFilteredEntities = (state: RootState, filters: IFilters) => {
+  let entArr = Object.values(state.entities.entities);
+  const { name } = filters;
+  if (name !== null && name !== undefined) {
+    entArr = entArr.reduce((accum, curr) => {
+      if (curr !== undefined && accum !== undefined) {
+        if (curr.name.includes(name)) return [...accum, curr] as IEntity[];
+      } else return accum;
+      return [];
+    }, [] as IEntity[]);
+  }
+  return entArr;
+};

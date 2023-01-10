@@ -10,3 +10,9 @@ export interface IEntity {
   parentId: string | null;
   price: number | null;
 }
+
+export interface IFilters {
+  name: string | null,
+  type: "CATEGORY" | "OFFER" | null,
+  parentId: string | null,
+}

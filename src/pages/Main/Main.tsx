@@ -14,6 +14,7 @@ function Main() {
 
   // const filterByProducts = useState(false);
   // const filterByCategory = useState(true);
+  const [elements, setElements] = useState<Array<IEntity | undefined>>(categories);
 
   const [query, setQuery] = useSearchParams();
   const params = new URLSearchParams(query.toString());
@@ -24,6 +25,14 @@ function Main() {
     if (el.name.includes(params.get("query") as string)) return true;
     return false;
   };
+
+  useEffect(() => {
+    if (elements.length === 0) {
+      console.log("Setting elements");
+      console.log(categories);
+      setElements(categories);
+    }
+  }, [categories]);
 
   return (
     <div>
@@ -36,9 +45,12 @@ function Main() {
               : "1fr",
         }}
       >
-        {categories?.filter(filterMethod).map((el) => (
+        {/* Filtered categories */}
+        {elements?.filter(filterMethod).map((el) => (
           <ElementCard entity={el as IEntity} key={el?.name as string} />
         ))}
+
+        {/* If nothing was found */}
         {categories?.filter(filterMethod).length === 0 && (
           <div className={styles.notFound}>Nothing was found</div>
         )}

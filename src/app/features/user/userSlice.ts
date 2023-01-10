@@ -17,6 +17,9 @@ export const userSlice = createSlice({
     builder.addCase(loginThunk.fulfilled, (state, action) => {
       console.log("Fulfilled");
       console.log("action", action);
+      state.email = action.payload.email;
+      state.username = action.payload.username;
+      state.sessionCreds = action.payload.sessionCreds;
     });
     builder.addCase(loginThunk.pending, (state, action) => {
       state.lastError = "";

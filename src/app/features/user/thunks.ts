@@ -12,6 +12,6 @@ export const loginThunk = createAsyncThunk(
       method: "GET",
       data: JSON.stringify(action),
     });
-    return { status: res.status };
+    return { username: "iota", email: "glebov.vanya@list.ru", sessionCreds: null };
   },
 );
