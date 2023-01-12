@@ -7,6 +7,7 @@ import { Button, Input } from "../UIKit";
 import styles from "./LoginModal.module.css";
 
 function LoginModal() {
+  const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const { enqueueSnackbar } = useSnackbar();
@@ -15,15 +16,20 @@ function LoginModal() {
   const dispatch = useAppDispatch();
 
   const doLogin = () => {
-    dispatch(
-      loginThunk({ password, email, callback: onClose }),
-    );
+    // dispatch(
+    //   loginThunk({ password, email }),
+    // );
   };
 
   return (
     <div className={styles.formWrapper}>
       <h2>Login</h2>
       <div className={styles.inputSection}>
+        <Input
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
         <Input
           placeholder="Email"
           value={email}
@@ -37,7 +43,7 @@ function LoginModal() {
         />
       </div>
       <div className={styles.buttonsSection}>
-        <Button onClick={doLogin}>Log in</Button>
+        <Button onClick={doLogin}>Add element</Button>
         <Button onClick={onClose}>Close</Button>
       </div>
     </div>

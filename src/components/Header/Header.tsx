@@ -8,7 +8,7 @@ import ModalContext from "../Modal/modal-context";
 import HomeButton from "../HomeButton/HomeButton";
 
 function Header() {
-  const { toggleLoginModal } = useContext(ModalContext);
+  const { toggleLoginModal, toggleRegisterModal } = useContext(ModalContext);
   return (
     <div className={styles.headerWrapper}>
       <HomeButton />
@@ -16,6 +16,7 @@ function Header() {
 
       <div className={styles.loginSection}>
         <Button onClick={toggleLoginModal}>Log in</Button>
+        <Button onClick={toggleRegisterModal}>Register</Button>
       </div>
     </div>
   );

@@ -7,3 +7,9 @@
     justify-content: space-between;
     align-items: center;
 }
+
+.loginSection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space);
+}

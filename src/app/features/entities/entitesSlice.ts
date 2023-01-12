@@ -1,4 +1,5 @@
 import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
+import { getAllEntities } from "./thunks";
 import { IEntity } from "./types";
 
 const EntitiesAdapter = createEntityAdapter<IEntity>();
@@ -35,6 +36,20 @@ export const entitiesSlice = createSlice({
     objectSetOne(state, action) {
       EntitiesAdapter.setOne(state, action);
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(getAllEntities.fulfilled, (state, action) => {
+      // console.log("All entities were fetched");
+      // console.log(action.payload.data);
+      EntitiesAdapter.setAll(state, action.payload.data);
+      // EntitiesAdapter.setAll(state, action);
+    });
+    builder.addCase(getAllEntities.pending, () => {
+      console.log("All fetch pending");
+    });
+    builder.addCase(getAllEntities.rejected, () => {
+      console.log("All fetch rejected");
+    });
   },
 });
 

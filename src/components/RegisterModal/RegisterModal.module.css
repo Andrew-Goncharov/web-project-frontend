@@ -1,0 +1,31 @@
+.formWrapper {
+
+    /* background-color: var(--color-dark-blue);
+    padding: var(--space);
+    margin: var(--space);
+    border-radius: calc(var(--space) / 2);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space);
+    width: 50%;
+    align-self: center; */
+
+}
+
+h2 {
+    margin-block-start: 0;
+}
+
+.inputSection {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space);
+}
+
+.buttonsSection {
+    margin-top: var(--space);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--space);
+}

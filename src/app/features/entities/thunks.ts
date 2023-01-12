@@ -1,14 +1,47 @@
 /* eslint-disable import/prefer-default-export */
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { IEntity } from "./types";
+import axios from "axios";
+import { IEntity, IImportNode } from "./types";
 
-export const getAllEntities = createAsyncThunk<{ entites: IEntity[] }, void>(
+export const getAllEntities = createAsyncThunk(
   "entites/getAll",
   async () => {
-    const resp = await fetch("https://vk.com");
-    // await new Promise((resolve) => {
-    //   setTimeout(resolve, 1000);
-    // });
-    return { entites: [] };
+    const resp = await axios.get("http://0.0.0.0:8000/main/nodes");
+    const a = Object.values(resp.data as IImportNode[]).map((el) => {
+      let n: IEntity = {
+        id: "",
+        name: "",
+        img: "",
+        type: "CATEGORY",
+        children: [],
+        date: "",
+        parentId: null,
+        price: null,
+      };
+      n = {
+        name: el.name,
+        id: el.id,
+        parentId: el.parent_id,
+        date: el.updated_at,
+        img: "",
+        type: el.type,
+        children: el.children,
+        price: el.price,
+      };
+      return n;
+    });
+    return { data: a };
+  },
+);
+
+export const addElement = createAsyncThunk(
+  "entities/addOne",
+  async (
+    action: IEntity,
+    thunkAPI,
+  ) => {
+    await axios.post("http://0.0.0.0:8000/main/import/", {
+      items: [action],
+    });
   },
 );

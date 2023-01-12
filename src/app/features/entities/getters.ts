@@ -27,14 +27,20 @@ export const getAllEntities = (state: RootState) =>
 
 export const getFilteredEntities = (state: RootState, filters: IFilters) => {
   let entArr = Object.values(state.entities.entities);
-  const { name } = filters;
+  const { name, type, parentId } = filters;
   if (name !== null && name !== undefined) {
-    entArr = entArr.reduce((accum, curr) => {
-      if (curr !== undefined && accum !== undefined) {
-        if (curr.name.includes(name)) return [...accum, curr] as IEntity[];
-      } else return accum;
-      return [];
-    }, [] as IEntity[]);
+    entArr = entArr.filter((el) => el?.name.includes(name));
   }
+
+  if (type !== null && type !== undefined) {
+    entArr = entArr.filter((el) => el?.type === type);
+  }
+  // if (name === undefined || name === null || name.length > 0) {
+  if (parentId !== undefined && parentId !== null) {
+    entArr = entArr.filter((el) => el?.parentId === parentId);
+  }
+  // } else if (parentId !== undefined) {
+  //   entArr = entArr.filter((el) => el?.parentId === parentId);
+  // }
   return entArr;
 };

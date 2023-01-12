@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { IUser } from "./types";
-import { loginThunk } from "./thunks";
+import { loginThunk, registerThunk } from "./thunks";
+import { RegisterModal } from "../../../components";
 
 const initialState: IUser = {
   username: "",
@@ -20,6 +21,7 @@ export const userSlice = createSlice({
       state.email = action.payload.email;
       state.username = action.payload.username;
       state.sessionCreds = action.payload.sessionCreds;
+      action.payload.callback();
     });
     builder.addCase(loginThunk.pending, (state, action) => {
       state.lastError = "";
@@ -28,6 +30,13 @@ export const userSlice = createSlice({
       console.log("Rejected");
       console.log(action);
       state.lastError = "Login attempt failed";
+    });
+
+    builder.addCase(registerThunk.fulfilled, (state, action) => {
+      action.payload.callback();
+    });
+    builder.addCase(registerThunk.rejected, (state, action) => {
+      console.log(action.payload);
     });
   },
 });

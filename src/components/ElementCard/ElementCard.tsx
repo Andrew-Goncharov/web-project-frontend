@@ -11,6 +11,8 @@ function ElementCard({ entity }: {entity: IEntity}) {
   const [query, setQuery] = useSearchParams();
   const params = new URLSearchParams(query.toString());
 
+  const USE_PALCEHOLDER = true;
+
   return (
     <div
       className={styles.elementCardWrapper}
@@ -24,7 +26,10 @@ function ElementCard({ entity }: {entity: IEntity}) {
       }}
     >
       <h2>{entity.name}</h2>
-      <div>{entity.img}</div>
+      <div className={styles.imageDiv} style={{ backgroundImage: (USE_PALCEHOLDER ? "url(https://via.placeholder.com/500x350)" : entity.img) }}>
+        {/* {USE_PALCEHOLDER && <img src="https://via.placeholder.com/500x350" alt={`${entity.name} img`} />}
+        {!USE_PALCEHOLDER && <img src={entity.img || "https://via.placeholder.com/350x150"} alt={`${entity.name} img`} />} */}
+      </div>
     </div>
   );
 }
