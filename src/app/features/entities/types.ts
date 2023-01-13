@@ -24,5 +24,6 @@ export interface IImportNode {
   price: number | null,
   type: "CATEGORY" | "OFFER",
   updated_at: string,
-  children: string[]
+  children: string[],
+  image: string,
 }

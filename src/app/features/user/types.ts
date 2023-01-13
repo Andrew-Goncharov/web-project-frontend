@@ -10,9 +10,3 @@ export interface IUser {
   sessionCreds: TJWT | null,
   lastError: string | null,
 }
-
-// export interface IAsyncThunk<T> {
-//   payload: T,
-//   onSuccess?: () => void,
-//   onError?: () => void,
-// }

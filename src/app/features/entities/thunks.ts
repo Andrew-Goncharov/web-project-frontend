@@ -23,7 +23,7 @@ export const getAllEntities = createAsyncThunk(
         id: el.id,
         parentId: el.parent_id,
         date: el.updated_at,
-        img: "",
+        img: el.image,
         type: el.type,
         children: el.children,
         price: el.price,
@@ -37,11 +37,12 @@ export const getAllEntities = createAsyncThunk(
 export const addElement = createAsyncThunk(
   "entities/addOne",
   async (
-    action: IEntity,
+    action: IImportNode,
     thunkAPI,
   ) => {
-    await axios.post("http://0.0.0.0:8000/main/import/", {
+    await axios.post("http://0.0.0.0:8000/main/imports/", {
       items: [action],
     });
+    return {};
   },
 );

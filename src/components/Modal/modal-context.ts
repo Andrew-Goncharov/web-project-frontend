@@ -7,6 +7,7 @@ export interface IModalContext {
   onOpen: () => void;
   toggleRegisterModal: () => void;
   toggleLoginModal: () => void;
+  toggleAddModal: () => void;
 
   isOpen: boolean;
   modalContent: React.ReactElement;
@@ -18,6 +19,7 @@ const ModalContext = createContext<IModalContext>({
   onOpen: () => {},
   toggleLoginModal: () => {},
   toggleRegisterModal: () => {},
+  toggleAddModal: () => {},
 
   isOpen: false,
   modalContent: React.createElement("div"),

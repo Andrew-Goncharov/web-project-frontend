@@ -12,7 +12,7 @@ function Product() {
   return (
     <div className={styles.pageWrapper}>
       <div className={styles.mainInfoContainer}>
-        <img className={styles.productImage} src={product?.img} alt={product?.name} />
+        <img className={styles.productImage} src={`data:image/jpeg;base64,${product?.img}`} alt={product?.name} />
         <div className={styles.productMainInfo}>
           <h1>{product?.name}</h1>
           <p>{product?.price}</p>
